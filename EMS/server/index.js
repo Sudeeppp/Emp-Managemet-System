@@ -1,6 +1,7 @@
 import express from 'express'
 import cors from 'cors'
-// import dbConnect from './config/dbconfig.js';
+import router from './routes/auth.js';
+import dbConnect from './config/dbconfig.js';
 
 
 const app = express();
@@ -8,9 +9,12 @@ const app = express();
 app.use(cors())
 app.use(express.json())
 
+//routes
+app.use('/api/auth', router)
 
 
-// dbConnect();
+// connect to database
+dbConnect();
 
 
 
